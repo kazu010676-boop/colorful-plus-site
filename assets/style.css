@@ -731,7 +731,7 @@ a { color: var(--accent-dark); }
 
 .origin-grid {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 320px 1fr;
   gap: 32px;
   align-items: center;
   background: #fff;
@@ -745,7 +745,7 @@ a { color: var(--accent-dark); }
 .tree {
   display: block;
   width: 100%;
-  max-width: 255px;
+  max-width: 300px;
   height: auto;
 }
 
@@ -940,7 +940,7 @@ a { color: var(--accent-dark); }
   .outline-grid { grid-template-columns: 1fr; }
   .triggers { grid-template-columns: repeat(2, 1fr); }
   .origin-grid { grid-template-columns: 1fr; gap: 18px; }
-  .tree-fig { max-width: 260px; margin-inline: auto; }
+  .tree-fig { max-width: 300px; margin-inline: auto; }
   .ict-merit-grid { grid-template-columns: 1fr; }
 }
 
