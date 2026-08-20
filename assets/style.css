@@ -731,7 +731,7 @@ a { color: var(--accent-dark); }
 
 .origin-grid {
   display: grid;
-  grid-template-columns: 340px 1fr;
+  grid-template-columns: 300px 1fr;
   gap: 32px;
   align-items: center;
   background: #fff;
@@ -741,8 +741,13 @@ a { color: var(--accent-dark); }
   box-shadow: var(--shadow);
 }
 
-.tree-fig { margin: 0; }
-.tree { display: block; width: 100%; height: auto; }
+.tree-fig { margin: 0; display: flex; justify-content: center; }
+.tree {
+  display: block;
+  width: 100%;
+  max-width: 255px;
+  height: auto;
+}
 
 .origin-copy p {
   margin: 0 0 16px;
