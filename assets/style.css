@@ -110,6 +110,7 @@ a { color: var(--accent-dark); }
   margin-right: auto;
 }
 .brand-mark { display: flex; flex: 0 0 auto; }
+.brand-mark img { display: block; width: 46px; height: 46px; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.35; min-width: 0; }
 .brand-text strong {
   font-size: 1.02rem;
@@ -960,7 +961,7 @@ a { color: var(--accent-dark); }
 
   .brand-text strong { font-size: .84rem; }
   .brand-text small { font-size: .62rem; }
-  .brand-mark svg { width: 34px; height: 34px; }
+  .brand-mark img { width: 42px; height: 42px; }
 
   .triggers li { padding: 18px 12px; font-size: .88rem; }
   .tri-ico { width: 48px; height: 48px; }
@@ -995,6 +996,7 @@ a { color: var(--accent-dark); }
   .brand-text small { display: none; }
   .nav-toggle-label { display: none; }
   .nav-toggle { padding: 11px; }
+  .brand-mark img { width: 40px; height: 40px; }
 
   .hero h1 { font-size: 1.62rem; }
   .btn-main { font-size: 1.28rem; }
