@@ -668,6 +668,7 @@ a { color: var(--accent-dark); }
   justify-content: space-between;
   padding-block: 40px;
 }
+.footer-corp { margin: 0 0 4px; font-size: .88rem; font-weight: 500; opacity: .8; }
 .footer-name { margin: 0 0 10px; font-size: 1.08rem; font-weight: 700; }
 .footer-meta { margin: 0; font-size: .86rem; opacity: .85; line-height: 1.9; }
 .footer-nav {
@@ -729,7 +730,7 @@ a { color: var(--accent-dark); }
 
 .origin-grid {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 340px 1fr;
   gap: 32px;
   align-items: center;
   background: #fff;
