@@ -345,6 +345,7 @@ a { color: var(--accent-dark); }
   font-weight: 700;
   color: var(--navy);
 }
+.sign-role { margin-right: .35em; }
 
 /* ---------- cards ---------- */
 .cards { display: grid; gap: 20px; }
@@ -1006,6 +1007,21 @@ a { color: var(--accent-dark); }
   .hero h1 { font-size: 1.62rem; }
   .btn-main { font-size: 1.28rem; }
   .hero-badges li { font-size: .84rem; padding-inline: 14px; }
+
+  /* 署名は役職と氏名を改行して、中途半端な折り返しを防ぐ */
+  .sign-role {
+    display: block;
+    margin-right: 0;
+    font-size: .88em;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+  .sign-name { display: block; margin-top: 2px; }
+
+  /* 「0円」を独立した行にして読みやすくする。
+     前半の一文が2行に割れないよう文字サイズを抑え、その分「0円」を大きくする */
+  .fee-big { font-size: 1.2rem; }
+  .fee-big em { display: block; margin-top: 4px; font-size: 1.8em; }
 }
 
 @media (prefers-reduced-motion: reduce) {
