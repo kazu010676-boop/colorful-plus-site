@@ -260,12 +260,16 @@ a { color: var(--accent-dark); }
 .btn-main { font-size: 1.4rem; letter-spacing: .04em; }
 .btn-ghost {
   justify-content: center;
+  align-items: center;
   background: #fff;
   color: var(--navy);
   border: 2px solid var(--navy);
   font-size: .94rem;
+  text-align: center;
 }
 .btn-ghost:hover { background: var(--navy); color: #fff; }
+.btn-ghost-main { font-size: 1.06em; }
+.btn-ghost-note { margin-top: 2px; font-size: .86em; font-weight: 500; opacity: .82; }
 
 /* ============================================================
    NOTICE BAR
@@ -321,6 +325,12 @@ a { color: var(--accent-dark); }
   margin: 0 0 34px;
   color: var(--ink-soft);
 }
+
+/* 見出しの補足（かっこ書き）。狭い画面では改行して語中で切れないようにする */
+.title-note { font-size: .82em; }
+
+/* 語句の途中で折り返させないためのまとまり。狭い画面での改行位置を整える */
+.nw { white-space: nowrap; }
 .sub-title {
   margin: 44px 0 20px;
   padding-left: 14px;
@@ -979,6 +989,13 @@ a { color: var(--accent-dark); }
   .pro-contact-grid { grid-template-columns: 1fr; }
 
   .btn { width: 100%; text-align: center; align-items: center; }
+
+  .title-note {
+    display: block;
+    margin-top: 5px;
+    font-size: .7em;
+    color: var(--ink-soft);
+  }
 
   .flow li { padding: 74px 22px 22px; }
   .flow li::before { top: 20px; left: 22px; }
