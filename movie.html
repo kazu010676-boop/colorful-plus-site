@@ -11,7 +11,7 @@
 <meta property="og:title" content="イメージムービー｜ケアプランセンター カラフルプラス">
 <meta property="og:description" content="その方だけの“想いの色”に、介護支援専門員の想いをそっとプラス。約1分のイメージムービーです。">
 <meta property="og:locale" content="ja_JP">
-<meta name="theme-color" content="#07161F">
+<meta name="theme-color" content="#12384C">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
 <script>if(window.self !== window.top) document.documentElement.classList.add('embed');</script>
 <style>
   :root{
-    --night:#07161f;
+    --night:#123a4e;
     --dawn:#123044;
     --paper:#fbf8f3;
     --ink:#16303f;
@@ -33,7 +33,7 @@
   html,body{height:100%;}
   body{
     margin:0;
-    background:#051016;
+    background:#0b1e29;
     color:var(--paper);
     font-family:var(--gothic);
     -webkit-font-smoothing:antialiased;
@@ -69,14 +69,14 @@
 
   /* 空のレイヤー */
   .sky{position:absolute;inset:0;opacity:0;will-change:opacity;}
-  .sky-night{background:radial-gradient(120% 100% at 50% 78%,#0d2432 0%,#07161f 55%,#040d13 100%);opacity:1;}
-  .sky-dawn{background:radial-gradient(120% 105% at 50% 82%,#2b5a6b 0%,#16394d 46%,#0a1d29 100%);}
+  .sky-night{background:radial-gradient(120% 100% at 50% 76%,#2f6a80 0%,#1a475f 48%,#102e40 100%);opacity:1;}
+  .sky-dawn{background:radial-gradient(120% 105% at 50% 80%,#6fadb9 0%,#3d8298 44%,#1f4f66 100%);}
   .sky-day{background:radial-gradient(120% 110% at 50% 86%,#ffffff 0%,#fdf6ea 38%,#eef4f2 72%,#dfeae9 100%);}
 
   .glow{
     position:absolute;left:50%;bottom:-14cqh;translate:-50% 0;
     width:96cqh;height:96cqh;border-radius:50%;
-    background:radial-gradient(circle,rgba(255,226,178,.55) 0%,rgba(255,205,140,.20) 38%,rgba(255,190,120,0) 70%);
+    background:radial-gradient(circle,rgba(255,232,192,.62) 0%,rgba(255,210,150,.26) 38%,rgba(255,190,120,0) 70%);
     opacity:0;mix-blend-mode:screen;will-change:opacity,transform;
   }
 
@@ -84,8 +84,8 @@
 
   .vignette{
     position:absolute;inset:0;pointer-events:none;
-    background:radial-gradient(115% 90% at 50% 50%,rgba(0,0,0,0) 55%,rgba(0,0,0,.42) 100%);
-    opacity:.9;
+    background:radial-gradient(115% 90% at 50% 50%,rgba(0,0,0,0) 58%,rgba(0,0,0,.26) 100%);
+    opacity:.85;
   }
 
   /* ---------- シーン共通 ---------- */
@@ -231,7 +231,7 @@
   .curtain{
     position:absolute;inset:0;z-index:20;
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.6cqh;
-    background:radial-gradient(120% 100% at 50% 60%,#12384c 0%,#07161f 62%,#040d13 100%);
+    background:radial-gradient(120% 100% at 50% 60%,#1e5872 0%,#123a4e 60%,#0d2637 100%);
     transition:opacity .8s ease,visibility .8s;
   }
   .curtain[hidden]{display:flex;opacity:0;visibility:hidden;pointer-events:none;}
@@ -329,9 +329,9 @@
 
   <div class="stage" id="stage">
     <div class="sky sky-night" data-in="0" data-out="22" data-fi="0.1" data-fo="6"></div>
-    <div class="sky sky-dawn"  data-in="9" data-out="52" data-fi="6"   data-fo="6"></div>
+    <div class="sky sky-dawn"  data-in="5" data-out="52" data-fi="6"   data-fo="6"></div>
     <div class="sky sky-day"   data-in="46" data-out="62" data-fi="7"  data-fo="0.1"></div>
-    <div class="glow" id="glow" data-in="10" data-out="62" data-fi="8" data-fo="0.1"></div>
+    <div class="glow" id="glow" data-in="3" data-out="62" data-fi="7" data-fo="0.1"></div>
 
     <canvas id="fx"></canvas>
 
@@ -582,10 +582,10 @@
   }
 
   /* ---------- オルゴールのBGM（Web Audioでその場で演奏） ----------
-     ヘ長調・4分の3拍子・♩=72。1小節2.5秒 × 24小節で、映像の展開に沿って
+     ニ長調・4分の4拍子・♩=96。1小節2.5秒 × 24小節で、映像の展開に沿って
      前奏（夜明け前）→ 主題（木があらわれる）→ 展開 → 高まり（ロゴ）→ 解決 と進みます。 */
   let ac = null, master = null, timer = null, muted = false, clickBuf = null;
-  const VOL = 1.1;
+  const VOL = 1.0;
 
   const SEMI = {C:0, D:2, E:4, F:5, G:7, A:9, B:11};
   function hz(n){
@@ -594,45 +594,47 @@
     return 440 * Math.pow(2, (s - 9) / 12 + (+m[3] - 4));
   }
 
-  const BEAT = 60 / 72, BAR = BEAT * 3;
+  const BEAT = 60 / 96, BAR = BEAT * 4;
 
-  /* 和音ごとの低音と、分散和音に使う3音 */
+  /* 和音ごとの低音と、分散和音に使う4音（ニ長調） */
   const CH = {
-    F:    {bass:'F2',  arp:['F3','A3','C4']},
-    Dm7:  {bass:'D2',  arp:['F3','A3','D4']},
-    Bb:   {bass:'Bb2', arp:['F3','Bb3','D4']},
-    C:    {bass:'C3',  arp:['G3','C4','E4']},
-    Gm7:  {bass:'G2',  arp:['G3','Bb3','D4']},
-    FA:   {bass:'A2',  arp:['F3','A3','C4']},
-    Csus: {bass:'C3',  arp:['G3','C4','F4']}
+    D:    {bass:'D2',  arp:['D3','F#3','A3','D4']},
+    G7th: {bass:'G2',  arp:['D3','F#3','B3','D4']},   // Gmaj7
+    A:    {bass:'A2',  arp:['E3','A3','C#4','E4']},
+    AC:   {bass:'C#3', arp:['E3','A3','C#4','E4']},   // A/C#
+    Bm7:  {bass:'B2',  arp:['D3','F#3','B3','D4']},
+    G:    {bass:'G2',  arp:['D3','G3','B3','D4']},
+    DF:   {bass:'F#2', arp:['D3','F#3','A3','D4']},   // D/F#
+    Em7:  {bass:'E2',  arp:['E3','G3','B3','D4']},
+    Asus: {bass:'A2',  arp:['E3','A3','D4','E4']}
   };
 
-  /* 各小節 = [和音, [[拍, 音, 強さ], ...]] */
+  /* 各小節 = [和音, [[拍, 音, 強さ], ...]]。1小節2.5秒 × 24小節 = 60秒 */
   const SCORE = [
-    ['F',    [[0,'F5',.30],[2,'C6',.26]]],                             //  1  夜明け前
-    ['F',    [[1,'A5',.24],[2,'C6',.20]]],                             //  2
-    ['Dm7',  [[0,'D6',.30],[2,'A5',.24]]],                             //  3
-    ['C',    [[0,'C6',.28],[2,'G5',.22]]],                             //  4
-    ['F',    [[0,'A5',.40],[1,'C6',.36],[2,'F6',.44]]],                //  5  主題（木があらわれる）
-    ['Dm7',  [[0,'E6',.42],[2,'C6',.34]]],                             //  6
-    ['Bb',   [[0,'D6',.40],[1,'C6',.32],[2,'A5',.34]]],                //  7
-    ['C',    [[0,'G5',.38]]],                                          //  8
-    ['Gm7',  [[0,'Bb5',.40],[1,'D6',.36],[2,'G6',.44]]],               //  9  想いの色
-    ['C',    [[0,'F6',.42],[2,'E6',.34]]],                             // 10
-    ['F',    [[0,'F6',.44]]],                                          // 11
-    ['Dm7',  [[1,'A5',.30],[2,'C6',.32]]],                             // 12
-    ['Bb',   [[0,'D6',.42],[1,'F6',.38],[2,'Bb6',.46]]],               // 13  そっと、プラス
-    ['FA',   [[0,'A6',.44],[2,'F6',.36]]],                             // 14
-    ['Gm7',  [[0,'G6',.42],[1,'F6',.34],[2,'D6',.36]]],                // 15  専門職のことば
-    ['Csus', [[0,'E6',.40],[2,'G6',.38]]],                             // 16
-    ['F',    [[0,'F6',.48],[0,'A5',.20],[1,'A6',.46],[2,'C7',.50]]],   // 17  ロゴ・高まり
-    ['Dm7',  [[0,'D7',.50],[1.5,'A6',.34],[2,'F6',.36]]],              // 18
-    ['Bb',   [[0,'Bb6',.48],[1,'F6',.38],[2,'D6',.38]]],               // 19
-    ['C',    [[0,'C6',.42],[1,'E6',.40],[2,'G6',.44]]],                // 20
-    ['Bb',   [[0,'F6',.46],[2,'D6',.38]]],                             // 21  あなたらしい毎日を
-    ['C',    [[0,'E6',.42],[1,'G6',.40],[2,'C6',.38]]],                // 22
-    ['F',    [[0,'F6',.50],[0,'C6',.28],[0,'A5',.24]]],                // 23  解決（エンドカード）
-    ['F',    [[0,'A5',.22],[1,'C6',.24],[2,'F6',.30]]]                 // 24  余韻
+    ['D',    [[0,'D5',.30],[2,'F#5',.30],[3,'A5',.32]]],                        //  1  夜明け
+    ['G7th', [[0,'B5',.34],[2,'A5',.30]]],                                      //  2
+    ['D',    [[0,'F#5',.32],[2,'D6',.36]]],                                     //  3
+    ['A',    [[0,'C#6',.34],[2,'E6',.36],[3,'A5',.28]]],                        //  4
+    ['D',    [[0,'D6',.44],[1,'E6',.34],[2,'F#6',.46],[3,'E6',.32]]],           //  5  主題（木があらわれる）
+    ['AC',   [[0,'C#6',.42],[2,'E6',.38],[3,'A5',.30]]],                        //  6
+    ['Bm7',  [[0,'B5',.40],[1,'D6',.34],[2,'F#6',.46]]],                        //  7
+    ['G',    [[0,'E6',.42],[2,'D6',.36],[3,'B5',.32]]],                         //  8
+    ['D',    [[0,'F#6',.46],[1,'A6',.44],[2,'F#6',.36],[3,'E6',.34]]],          //  9  想いの色
+    ['A',    [[0,'E6',.42],[2,'C#6',.36],[3,'E6',.32]]],                        // 10
+    ['G',    [[0,'D6',.42],[1,'B5',.34],[2,'D6',.38],[3,'G6',.46]]],            // 11
+    ['A',    [[0,'A6',.48],[2,'E6',.36]]],                                      // 12
+    ['G',    [[0,'B5',.40],[1,'D6',.36],[2,'G6',.46]]],                         // 13  そっと、プラス
+    ['DF',   [[0,'F#6',.44],[2,'A6',.46],[3,'F#6',.34]]],                       // 14
+    ['Em7',  [[0,'G6',.44],[1,'F#6',.34],[2,'E6',.38],[3,'G6',.40]]],           // 15  専門職のことば
+    ['Asus', [[0,'A6',.46],[2,'E6',.36],[3,'C#6',.34]]],                        // 16
+    ['D',    [[0,'D7',.52],[0,'F#6',.24],[1,'A6',.44],[2,'F#6',.40],[3,'A6',.44]]], // 17  ロゴ・高まり
+    ['A',    [[0,'C#7',.52],[2,'A6',.42],[3,'E6',.34]]],                        // 18
+    ['Bm7',  [[0,'D7',.50],[1,'C#7',.42],[2,'B6',.46]]],                        // 19
+    ['G',    [[0,'B6',.48],[1,'A6',.40],[2,'G6',.44],[3,'B6',.46]]],            // 20
+    ['G',    [[0,'D7',.50],[2,'B6',.42],[3,'A6',.38]]],                         // 21  あなたらしい毎日を
+    ['A',    [[0,'C#7',.50],[1,'E7',.48],[2,'A6',.40]]],                        // 22
+    ['D',    [[0,'D7',.54],[0,'A6',.30],[0,'F#6',.26],[2,'F#6',.30]]],          // 23  解決（エンドカード）
+    ['D',    [[0,'F#6',.26],[1,'A6',.30],[2,'D7',.38]]]                         // 24  未来へ、上へ
   ];
 
   function buildScore(){
@@ -640,15 +642,16 @@
     const jit = () => (Math.random() - .5) * .012;   // 機械の微妙なゆらぎ
     SCORE.forEach((bar, i) => {
       const t0 = i * BAR, ch = CH[bar[0]];
-      out.push({t:t0, f:hz(ch.bass), v:(i < 4 ? .26 : .30), bus:'bass'});
-      if(i >= 4 && i <= 22){
-        const pat = [0,1,2,1,2,1], base = i < 12 ? .18 : .22;
-        for(let e = 0; e < 6; e++){
-          if(i === 22 && e > 2) break;               // 最後は伴奏を先に引く
+      out.push({t:t0, f:hz(ch.bass), v:(i < 4 ? .27 : .30), bus:'bass'});
+      if(i >= 11) out.push({t:t0 + 2 * BEAT, f:hz(ch.bass), v:.22, bus:'bass'});
+      if(i >= 1 && i <= 22){
+        const pat = [0,1,2,3,2,1,2,3], base = i < 4 ? .13 : i < 12 ? .15 : i < 16 ? .18 : .21;
+        for(let e = 0; e < 8; e++){
+          if(i === 22 && e > 3) break;               // 最後は伴奏を先に引く
           out.push({
             t: t0 + e * BEAT / 2 + jit(),
             f: hz(ch.arp[pat[e]]),
-            v: base * (e === 0 ? 1.3 : 1) * (.88 + Math.random() * .24),
+            v: base * (e === 0 ? 1.35 : e === 4 ? 1.15 : 1) * (.88 + Math.random() * .24),
             bus: 'arp'
           });
         }
@@ -657,6 +660,7 @@
     });
     return out.sort((a, b) => a.t - b.t);
   }
+
 
   /* オルゴールの櫛歯をはじいたときの倍音構成（倍率・音量・減衰の長さ） */
   const PARTIALS = [[1,1,3.4],[2.00,.44,2.1],[3.01,.24,1.35],[4.72,.13,.85],[6.83,.075,.55],[9.12,.04,.36]];
@@ -720,9 +724,14 @@
     master.gain.exponentialRampToValueAtTime(muted ? .0001 : VOL, t00 + 1.2);
 
     const comp = ac.createDynamicsCompressor();
-    comp.threshold.value = -16; comp.knee.value = 24; comp.ratio.value = 3;
+    comp.threshold.value = -18; comp.knee.value = 24; comp.ratio.value = 3.5;
     comp.attack.value = .012; comp.release.value = .28;
-    comp.connect(master);
+    /* 最後の安全弁。どんな場合でも音が割れないようにする */
+    const limiter = ac.createDynamicsCompressor();
+    limiter.threshold.value = -3.5; limiter.knee.value = 0; limiter.ratio.value = 20;
+    limiter.attack.value = .001; limiter.release.value = .06;
+    limiter.connect(master);
+    comp.connect(limiter);
 
     const air = ac.createBiquadFilter();          // 高域を少し落として耳あたりを柔らかく
     air.type = 'highshelf'; air.frequency.value = 5200; air.gain.value = -3.5;
@@ -750,7 +759,7 @@
     /* オルゴールの下に敷く、ごく静かな持続音 */
     const padGain = ac.createGain(); padGain.gain.value = .0001;
     const padLp = ac.createBiquadFilter();
-    padLp.type = 'lowpass'; padLp.frequency.value = 700; padLp.Q.value = .5;
+    padLp.type = 'lowpass'; padLp.frequency.value = 900; padLp.Q.value = .5;
     padGain.connect(padLp); padLp.connect(comp);
     const pad = [];
     for(let i = 0; i < 3; i++){
@@ -786,11 +795,11 @@
         const arp = CH[SCORE[bi][0]].arp;
         pad.forEach((o, i) => o.frequency.setTargetAtTime(hz(arp[i]) / 2, now, 1.1));
       }
-      const lv = t < 18 ? .0001 : t < 40 ? .03 : t < 50 ? .05 : t < 56 ? .055 : .0001;
+      const lv = t < 12 ? .0001 : t < 30 ? .028 : t < 40 ? .042 : t < 56 ? .055 : .0001;
       if(lv !== padLv){
         padLv = lv;
         padGain.gain.setTargetAtTime(lv, now, 2.2);
-        padLp.frequency.setTargetAtTime(t < 40 ? 700 : 1100, now, 3);
+        padLp.frequency.setTargetAtTime(t < 30 ? 900 : t < 45 ? 1300 : 1600, now, 3);
       }
 
       if(!muted){
