@@ -1050,3 +1050,44 @@ a { color: var(--accent-dark); }
   .site-header, .mobile-call, .map-box iframe { display: none; }
   body { font-size: 12px; }
 }
+
+/* ============================================================
+   イメージムービー（トップページ埋め込み）
+   ============================================================ */
+.section-movie { background: #0b2130; }
+.section-movie .sec-eyebrow { color: #7fd8c4; }
+.section-movie .sec-title { color: #ffffff; }
+.section-movie .sec-lead { color: #a9c3cd; }
+
+.movie-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #07161f;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, .38);
+}
+.movie-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.movie-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 18px;
+  margin: 16px 0 0;
+  font-size: .92rem;
+  color: #90aab5;
+}
+.movie-note a { color: #9fd8cc; }
+.movie-note a:hover { color: #c9efe6; }
+
+@media (max-width: 700px) and (orientation: portrait) {
+  .movie-frame { aspect-ratio: 4 / 5; }
+}

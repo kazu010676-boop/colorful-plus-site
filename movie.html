@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>イメージムービー｜ケアプランセンター カラフルプラス</title>
+<meta name="description" content="ケアプランセンター カラフルプラス（静岡県浜松市中央区向宿・居宅介護支援事業所）のイメージムービー。約1分。その方だけの“想いの色”に、介護支援専門員の想いをそっとプラス。">
+<link rel="canonical" href="https://colorful-plus-site.pages.dev/movie.html">
+<meta property="og:url" content="https://colorful-plus-site.pages.dev/movie.html">
+<meta property="og:type" content="video.other">
+<meta property="og:title" content="イメージムービー｜ケアプランセンター カラフルプラス">
+<meta property="og:description" content="その方だけの“想いの色”に、介護支援専門員の想いをそっとプラス。約1分のイメージムービーです。">
+<meta property="og:locale" content="ja_JP">
+<meta name="theme-color" content="#07161F">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@500;600;700&display=swap" rel="stylesheet">
+<script>if(window.self !== window.top) document.documentElement.classList.add('embed');</script>
+<style>
+  :root{
+    --night:#07161f;
+    --dawn:#123044;
+    --paper:#fbf8f3;
+    --ink:#16303f;
+    --ink-soft:#6c8794;
+    --c1:#e8615a; --c2:#f2a93b; --c3:#46b08a; --c4:#3d8bfd; --c5:#9b72cf;
+    --accent:#12766a;
+    --mincho:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+    --gothic:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",system-ui,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    background:#051016;
+    color:var(--paper);
+    font-family:var(--gothic);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .page{
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    padding:24px 16px 32px;
+  }
+
+  /* ---------- ステージ ---------- */
+  .stage{
+    position:relative;
+    width:min(100%,1120px);
+    aspect-ratio:16/9;
+    overflow:hidden;
+    border-radius:10px;
+    background:var(--night);
+    container-type:size;
+    box-shadow:0 24px 70px rgba(0,0,0,.55);
+    isolation:isolate;
+    user-select:none;
+    /* 映像内の文字サイズ（横長は画面の高さ基準） */
+    --fs-lg:5.4cqh; --fs-md:4.4cqh; --fs-dot:2.5cqh; --fs-term:2.35cqh;
+    --fs-brand:5cqh; --fs-body:2.3cqh; --fs-tel:4.4cqh; --fs-url:2.1cqh;
+    --pad:8cqw; --tree:52cqh;
+  }
+
+  /* 空のレイヤー */
+  .sky{position:absolute;inset:0;opacity:0;will-change:opacity;}
+  .sky-night{background:radial-gradient(120% 100% at 50% 78%,#0d2432 0%,#07161f 55%,#040d13 100%);opacity:1;}
+  .sky-dawn{background:radial-gradient(120% 105% at 50% 82%,#2b5a6b 0%,#16394d 46%,#0a1d29 100%);}
+  .sky-day{background:radial-gradient(120% 110% at 50% 86%,#ffffff 0%,#fdf6ea 38%,#eef4f2 72%,#dfeae9 100%);}
+
+  .glow{
+    position:absolute;left:50%;bottom:-14cqh;translate:-50% 0;
+    width:96cqh;height:96cqh;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,226,178,.55) 0%,rgba(255,205,140,.20) 38%,rgba(255,190,120,0) 70%);
+    opacity:0;mix-blend-mode:screen;will-change:opacity,transform;
+  }
+
+  #fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+
+  .vignette{
+    position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(115% 90% at 50% 50%,rgba(0,0,0,0) 55%,rgba(0,0,0,.42) 100%);
+    opacity:.9;
+  }
+
+  /* ---------- シーン共通 ---------- */
+  .scene{
+    position:absolute;inset:0;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;
+    opacity:0;
+    padding:0 var(--pad);
+    will-change:opacity;
+  }
+  .line{
+    font-family:var(--mincho);
+    font-weight:500;
+    letter-spacing:.14em;
+    line-height:1.85;
+    margin:0;
+    opacity:0;
+    transform:translateY(1.4cqh);
+    filter:blur(6px);
+    transition:opacity 1.25s ease,transform 1.5s cubic-bezier(.18,.72,.2,1),filter 1.25s ease;
+    transition-delay:var(--d,0s);
+  }
+  .on .line{opacity:1;transform:none;filter:blur(0);}
+
+  .t-lg{font-size:var(--fs-lg);}
+  .t-md{font-size:var(--fs-md);}
+  .t-sm{font-size:calc(var(--fs-md) * .78);}
+  .dim{color:rgba(251,248,243,.72);}
+  .on-light .line{color:#153343;text-shadow:0 0 2.6cqh rgba(255,255,255,.55);}
+
+  .hair{
+    width:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);
+    margin:2.6cqh 0 0;
+    transition:width 2.2s cubic-bezier(.2,.7,.2,1);
+    transition-delay:var(--d,0s);
+  }
+  .on .hair{width:26cqw;}
+
+  /* 木 */
+  .tree-wrap{
+    position:absolute;left:50%;bottom:2cqh;translate:-50% 0;
+    width:var(--tree);opacity:0;will-change:opacity,transform;
+  }
+  .tree-wrap img{display:block;width:100%;height:auto;}
+
+  /* 想いの色 */
+  .dots{display:flex;gap:4.4cqw;align-items:flex-end;margin-bottom:4cqh;}
+  .dot{
+    display:flex;flex-direction:column;align-items:center;gap:1.4cqh;
+    opacity:0;transform:translateY(1.6cqh) scale(.86);
+    transition:opacity .9s ease,transform 1.1s cubic-bezier(.2,.75,.2,1);
+    transition-delay:var(--d,0s);
+  }
+  .on .dot{opacity:1;transform:none;}
+  .dot i{
+    width:4.6cqh;height:4.6cqh;border-radius:50%;background:var(--tone);
+    box-shadow:0 0 3.6cqh var(--tone),0 0 8cqh color-mix(in srgb,var(--tone) 55%,transparent);
+  }
+  .dot span{
+    font-family:var(--mincho);font-size:var(--fs-dot);letter-spacing:.2em;
+    color:rgba(251,248,243,.9);
+  }
+
+  /* プラス */
+  .plus{position:relative;width:13cqh;height:13cqh;margin-bottom:4.2cqh;}
+  .plus i{
+    position:absolute;background:linear-gradient(90deg,var(--c1),var(--c2),var(--c3),var(--c4),var(--c5));
+    border-radius:999px;
+    box-shadow:0 0 5cqh rgba(255,255,255,.28);
+  }
+  .plus i:nth-child(1){left:0;top:calc(50% - .8cqh);height:1.6cqh;width:0;transition:width 1.1s cubic-bezier(.2,.8,.2,1) .25s;}
+  .plus i:nth-child(2){top:0;left:calc(50% - .8cqh);width:1.6cqh;height:0;transition:height 1.1s cubic-bezier(.2,.8,.2,1) .8s;}
+  .on .plus i:nth-child(1){width:100%;}
+  .on .plus i:nth-child(2){height:100%;}
+
+  /* 専門職キーワード */
+  .terms{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:1.2cqh 1.8cqw;
+    max-width:78cqw;margin-top:4cqh;
+  }
+  .terms b{
+    font-family:var(--gothic);font-weight:500;font-size:var(--fs-term);letter-spacing:.08em;
+    padding:.7cqh 1.5cqw;border-radius:999px;
+    border:1px solid rgba(251,248,243,.28);
+    color:rgba(251,248,243,.9);
+    background:rgba(255,255,255,.05);
+    opacity:0;transform:translateY(1.2cqh);
+    transition:opacity .8s ease,transform .9s cubic-bezier(.2,.75,.2,1);
+    transition-delay:var(--d,0s);
+  }
+  .on .terms b{opacity:1;transform:none;}
+
+  /* ロゴ */
+  .emblem{
+    width:17cqh;height:17cqh;border-radius:50%;
+    margin-bottom:3.4cqh;
+    opacity:0;transform:scale(.9);
+    transition:opacity 1.3s ease,transform 1.6s cubic-bezier(.2,.75,.2,1);
+    transition-delay:var(--d,0s);
+    box-shadow:0 0 6cqh rgba(255,255,255,.35);
+  }
+  .on .emblem{opacity:1;transform:none;}
+  .emblem img{display:block;width:100%;height:100%;border-radius:50%;}
+
+  /* エンドカード */
+  .end{gap:0;}
+  .end .brand{
+    font-family:var(--mincho);font-weight:700;
+    font-size:var(--fs-brand);letter-spacing:.16em;color:#153343;
+  }
+  .end .brand small{display:block;font-size:.42em;letter-spacing:.3em;font-weight:600;color:#3f6577;margin-bottom:.9cqh;}
+  .end .org{font-size:var(--fs-body);letter-spacing:.1em;color:#4a6b79;margin-top:1.6cqh;}
+  .end .meta{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:.8cqh 2.4cqw;
+    margin-top:3cqh;font-size:var(--fs-body);letter-spacing:.06em;color:#2c4d5d;
+  }
+  .end .meta span{display:inline-flex;align-items:center;gap:.6em;}
+  .end .meta span::before{content:"";width:.5cqh;height:.5cqh;border-radius:50%;background:var(--tone,#12766a);}
+  .end .tel{
+    margin-top:3.2cqh;font-family:var(--gothic);font-weight:700;
+    font-size:var(--fs-tel);letter-spacing:.06em;color:#12766a;
+    font-variant-numeric:tabular-nums;
+  }
+  .end .tel small{display:block;font-size:.4em;font-weight:500;letter-spacing:.2em;color:#4a6b79;}
+  .end .url{margin-top:2.4cqh;font-size:var(--fs-url);letter-spacing:.08em;color:#4a6b79;}
+  .end .rainbow{
+    width:0;height:.7cqh;border-radius:999px;margin-top:3.4cqh;
+    background:linear-gradient(90deg,var(--c1),var(--c2),var(--c3),var(--c4),var(--c5));
+    transition:width 1.8s cubic-bezier(.2,.7,.2,1);
+    transition-delay:var(--d,0s);
+  }
+  .on .end .rainbow,.end.on .rainbow{width:30cqw;}
+
+  /* ---------- 再生オーバーレイ ---------- */
+  .curtain{
+    position:absolute;inset:0;z-index:20;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.6cqh;
+    background:radial-gradient(120% 100% at 50% 60%,#12384c 0%,#07161f 62%,#040d13 100%);
+    transition:opacity .8s ease,visibility .8s;
+  }
+  .curtain[hidden]{display:flex;opacity:0;visibility:hidden;pointer-events:none;}
+  .curtain img{width:14cqh;height:14cqh;border-radius:50%;box-shadow:0 0 6cqh rgba(255,255,255,.28);}
+  .curtain h1{
+    font-family:var(--mincho);font-weight:600;font-size:calc(var(--fs-lg) * .78);letter-spacing:.18em;margin:0;
+    color:#fbf8f3;
+  }
+  .curtain p{margin:0;font-size:var(--fs-body);letter-spacing:.12em;color:rgba(251,248,243,.66);}
+  .playbtn{
+    margin-top:1cqh;
+    display:inline-flex;align-items:center;gap:1.2cqw;
+    padding:1.6cqh 4cqw;border-radius:999px;border:1px solid rgba(251,248,243,.45);
+    background:rgba(251,248,243,.06);color:#fbf8f3;
+    font-family:var(--gothic);font-size:calc(var(--fs-body) * 1.05);font-weight:500;letter-spacing:.2em;
+    cursor:pointer;transition:background .25s ease,border-color .25s ease,transform .25s ease;
+  }
+  .playbtn:hover{background:rgba(251,248,243,.14);border-color:rgba(251,248,243,.8);}
+  .playbtn:active{transform:scale(.98);}
+  .playbtn svg{width:2.4cqh;height:2.4cqh;fill:currentColor;}
+  .playbtn:focus-visible,.ctrl:focus-visible,.backlink:focus-visible{outline:2px solid #f2a93b;outline-offset:3px;}
+
+  /* ---------- コントロール ---------- */
+  .controls{
+    position:absolute;left:0;right:0;bottom:0;z-index:15;
+    display:flex;align-items:center;gap:14px;
+    padding:14px 18px 12px;
+    background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.42));
+    opacity:0;transition:opacity .35s ease;
+  }
+  .stage:hover .controls,.controls.show{opacity:1;}
+  .bar{position:relative;flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.28);cursor:pointer;}
+  .bar::before{content:"";position:absolute;left:0;right:0;top:-10px;bottom:-10px;}
+  .bar i{position:absolute;inset:0 auto 0 0;width:0;border-radius:2px;background:#fbf8f3;}
+  .bar:focus-visible{outline:2px solid #f2a93b;outline-offset:6px;}
+  .time{font-size:12px;letter-spacing:.08em;color:rgba(255,255,255,.85);font-variant-numeric:tabular-nums;}
+  .ctrl{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.35);
+    background:rgba(255,255,255,.08);color:#fff;cursor:pointer;padding:0;
+  }
+  .ctrl svg{width:15px;height:15px;fill:currentColor;}
+  .ctrl:hover{background:rgba(255,255,255,.2);}
+
+  /* ---------- ステージ外 ---------- */
+  .caption{
+    width:min(100%,1120px);
+    display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 20px;
+    color:#8fa8b3;font-size:13px;letter-spacing:.06em;
+  }
+  .caption strong{color:#dfe9ed;font-weight:500;letter-spacing:.12em;}
+  .backlink{color:#9fd8cc;text-decoration:none;border-bottom:1px solid rgba(159,216,204,.4);padding-bottom:1px;}
+  .backlink:hover{color:#c9efe6;}
+
+  /* トップページに埋め込まれたときは、映像だけを表示する */
+  .embed .page{padding:0;gap:0;}
+  .embed .caption{display:none;}
+  .embed .stage{width:100%;height:100vh;max-width:none;aspect-ratio:auto;border-radius:0;box-shadow:none;}
+
+  .stage:fullscreen{
+    width:100vw;height:100vh;max-width:none;aspect-ratio:auto;border-radius:0;box-shadow:none;
+  }
+
+  /* スマートフォンの縦画面では、画面を縦長にして文字を読みやすく */
+  @media (max-width:760px) and (orientation:portrait){
+    .stage{
+      aspect-ratio:4/5;
+      --fs-lg:6.2cqw; --fs-md:5.2cqw; --fs-dot:3.4cqw; --fs-term:3.1cqw;
+      --fs-brand:6.4cqw; --fs-body:3.2cqw; --fs-tel:6.6cqw; --fs-url:2.9cqw;
+      --pad:6cqw; --tree:62cqw;
+    }
+    .dots{gap:3.2cqw;}
+    .dot i{width:5cqw;height:5cqw;}
+    .plus{width:16cqw;height:16cqw;}
+    .plus i:nth-child(1){top:calc(50% - 1cqw);height:2cqw;}
+    .plus i:nth-child(2){left:calc(50% - 1cqw);width:2cqw;}
+    .emblem{width:21cqw;height:21cqw;}
+    .terms{max-width:92cqw;gap:1.2cqw 1.6cqw;}
+    .curtain img{width:20cqw;height:20cqw;}
+    .curtain h1{font-size:6.2cqw;}
+    .curtain p{font-size:3.4cqw;}
+    .playbtn{font-size:3.6cqw;padding:2.4cqw 6cqw;}
+    .playbtn svg{width:3.6cqw;height:3.6cqw;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .line,.dot,.terms b,.emblem{transition-duration:.35s;transform:none !important;filter:none !important;}
+    .hair,.plus i,.end .rainbow{transition-duration:.35s;}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="stage" id="stage">
+    <div class="sky sky-night" data-in="0" data-out="22" data-fi="0.1" data-fo="6"></div>
+    <div class="sky sky-dawn"  data-in="9" data-out="52" data-fi="6"   data-fo="6"></div>
+    <div class="sky sky-day"   data-in="46" data-out="62" data-fi="7"  data-fo="0.1"></div>
+    <div class="glow" id="glow" data-in="10" data-out="62" data-fi="8" data-fo="0.1"></div>
+
+    <canvas id="fx"></canvas>
+
+    <div class="tree-wrap" id="tree" data-in="11" data-out="56" data-fi="4.5" data-fo="2.5">
+      <img src="assets/tree.png" width="520" height="505" alt="色とりどりの葉を茂らせた木のイラスト" decoding="async">
+    </div>
+
+    <!-- 1 -->
+    <div class="scene" data-in="1.4" data-out="6.4" data-fo="1.2">
+      <p class="line t-lg" style="--d:.1s">歳を重ねるということは、</p>
+    </div>
+    <!-- 2 -->
+    <div class="scene" data-in="6.8" data-out="11.6" data-fo="1.2">
+      <p class="line t-lg" style="--d:.1s">色を、重ねていくということ。</p>
+      <div class="hair" style="--d:.9s"></div>
+    </div>
+    <!-- 3 -->
+    <div class="scene" data-in="12.6" data-out="18.6" data-fo="1.2" style="justify-content:flex-start;padding-top:9cqh">
+      <p class="line t-md" style="--d:.1s">一人ひとり、人生も、想いも、</p>
+      <p class="line t-md" style="--d:1.1s">望む暮らしも、ちがう。</p>
+    </div>
+    <!-- 4 -->
+    <div class="scene" data-in="19.2" data-out="25.6" data-fo="1.2" style="justify-content:flex-start;padding-top:7cqh">
+      <div class="dots">
+        <span class="dot" style="--tone:var(--c1);--d:.2s"><i></i><span>人生</span></span>
+        <span class="dot" style="--tone:var(--c2);--d:.5s"><i></i><span>想い</span></span>
+        <span class="dot" style="--tone:var(--c3);--d:.8s"><i></i><span>暮らし</span></span>
+        <span class="dot" style="--tone:var(--c4);--d:1.1s"><i></i><span>願い</span></span>
+        <span class="dot" style="--tone:var(--c5);--d:1.4s"><i></i><span>笑顔</span></span>
+      </div>
+      <p class="line t-md" style="--d:1.9s">だから私たちは、その方だけの</p>
+      <p class="line t-md" style="--d:2.5s">&ldquo;想いの色&rdquo;を大切にします。</p>
+    </div>
+    <!-- 5 -->
+    <div class="scene" data-in="26.2" data-out="32.6" data-fo="1.2" style="justify-content:flex-start;padding-top:6cqh">
+      <div class="plus"><i></i><i></i></div>
+      <p class="line t-md" style="--d:1.9s">その色に、介護支援専門員の想いを、</p>
+      <p class="line t-md" style="--d:2.5s">そっと、プラス。</p>
+    </div>
+    <!-- 6 -->
+    <div class="scene" data-in="33.2" data-out="40.4" data-fo="1.2" style="justify-content:flex-start;padding-top:6cqh">
+      <p class="line t-md" style="--d:.1s">想いに寄り添うことと、</p>
+      <p class="line t-md" style="--d:.8s">専門職の技術で支えることは、ひとつです。</p>
+      <div class="terms">
+        <b style="--d:1.7s">アセスメント</b>
+        <b style="--d:1.9s">居宅サービス計画（ケアプラン）</b>
+        <b style="--d:2.1s">サービス担当者会議</b>
+        <b style="--d:2.3s">モニタリング訪問</b>
+        <b style="--d:2.5s">給付管理</b>
+        <b style="--d:2.7s">多職種連携</b>
+        <b style="--d:2.9s">意思決定支援</b>
+        <b style="--d:3.1s">自立支援・重度化防止</b>
+        <b style="--d:3.3s">在宅生活の継続</b>
+      </div>
+    </div>
+    <!-- 7 -->
+    <div class="scene" data-in="41" data-out="47.4" data-fo="1.2" style="justify-content:flex-start;padding-top:7cqh">
+      <span class="emblem" style="--d:.1s"><img src="assets/logo.png" width="144" height="144" alt="カラフルプラスのロゴ" decoding="async"></span>
+      <p class="line t-md" style="--d:1.2s">不安を、安心に。</p>
+      <p class="line t-md" style="--d:2s">悩みを、笑顔に。</p>
+    </div>
+    <!-- 8 -->
+    <div class="scene on-light" data-in="49.2" data-out="54.4" data-fo="1.4" style="justify-content:flex-start;padding-top:9cqh">
+      <p class="line t-lg" style="--d:.2s">あなたらしい毎日を、</p>
+      <p class="line t-lg" style="--d:1.2s">一緒につくっていきます。</p>
+    </div>
+    <!-- 9 エンドカード -->
+    <div class="scene end" data-in="54.6" data-out="70" data-fi="1.6" data-fo="0.1">
+      <p class="brand line" style="--d:.2s"><small>ケアプランセンター</small>カラフルプラス</p>
+      <p class="org line" style="--d:.9s">一般社団法人 日本福祉支援センター ／ 居宅介護支援事業所</p>
+      <div class="meta">
+        <span class="line" style="--tone:var(--c1);--d:1.3s">浜松市全域に対応</span>
+        <span class="line" style="--tone:var(--c3);--d:1.5s">ご利用者様の自己負担 0円</span>
+        <span class="line" style="--tone:var(--c4);--d:1.7s">事業所番号 2277207151</span>
+      </div>
+      <p class="tel line" style="--d:2.1s"><small>ご相談・お問い合わせ</small>090-8504-0458</p>
+      <p class="url line" style="--d:2.5s">静岡県浜松市中央区向宿1丁目7-3 ／ colorful-plus-site.pages.dev</p>
+      <div class="rainbow" style="--d:2.8s"></div>
+    </div>
+
+    <div class="vignette"></div>
+
+    <div class="curtain" id="curtain">
+      <img src="assets/logo.png" width="144" height="144" alt="" decoding="async">
+      <h1>カラフルプラス</h1>
+      <p>イメージムービー ／ 約1分</p>
+      <button class="playbtn" id="playbtn" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>再生する
+      </button>
+    </div>
+
+    <div class="controls" id="controls">
+      <button class="ctrl" id="replay" type="button" aria-label="最初から再生">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V1L7 6l5 5V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z"/></svg>
+      </button>
+      <button class="ctrl" id="fs" type="button" aria-label="全画面で見る">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5v2H6v3H4zm11-5h5v5h-2V6h-3V4zM4 15h2v3h3v2H4v-5zm14 0h2v5h-5v-2h3v-3z"/></svg>
+      </button>
+      <button class="ctrl" id="mute" type="button" aria-label="音を消す">
+        <svg viewBox="0 0 24 24" aria-hidden="true" id="ico-sound"><path d="M4 9v6h4l5 5V4L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
+      </button>
+      <div class="bar" id="bar" role="slider" tabindex="0" aria-label="再生位置" aria-valuemin="0" aria-valuemax="60" aria-valuenow="0"><i id="progress"></i></div>
+      <span class="time" id="time">0:00 / 1:00</span>
+    </div>
+  </div>
+
+  <div class="caption">
+    <p><strong>ケアプランセンター カラフルプラス　イメージムービー</strong>　その方だけの&ldquo;想いの色&rdquo;に、介護支援専門員の想いをそっとプラス。</p>
+    <p><a class="backlink" href="./">トップページへ戻る</a></p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  const DURATION = 60;
+  const stage    = document.getElementById('stage');
+  const curtain  = document.getElementById('curtain');
+  const playbtn  = document.getElementById('playbtn');
+  const replay   = document.getElementById('replay');
+  const muteBtn  = document.getElementById('mute');
+  const progress = document.getElementById('progress');
+  const timeEl   = document.getElementById('time');
+  const controls = document.getElementById('controls');
+  const bar      = document.getElementById('bar');
+  const glow     = document.getElementById('glow');
+  const reduce   = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- タイムライン ---------- */
+  const cues = [...stage.querySelectorAll('[data-in]')].map(el => ({
+    el,
+    tin : parseFloat(el.dataset.in),
+    tout: parseFloat(el.dataset.out),
+    fi  : parseFloat(el.dataset.fi || 1),
+    fo  : parseFloat(el.dataset.fo || 1)
+  }));
+
+  const clamp = (v,a,b) => v < a ? a : v > b ? b : v;
+  const smooth = x => { x = clamp(x,0,1); return x*x*(3-2*x); };
+
+  let curT = 0;
+
+  function renderAt(t){
+    curT = t;
+    for(const c of cues){
+      let a = 0;
+      if(t >= c.tin && t <= c.tout){
+        a = smooth((t - c.tin) / c.fi) * smooth((c.tout - t) / c.fo);
+        if(!c.el.classList.contains('on')) c.el.classList.add('on');
+      }else if(c.el.classList.contains('on')){
+        c.el.classList.remove('on');
+      }
+      c.el.style.opacity = a.toFixed(3);
+    }
+    if(glow){
+      const k = clamp((t - 10) / 40, 0, 1);
+      glow.style.transform = 'translate(-50%,0) scale(' + (0.7 + k * 0.65).toFixed(3) + ')';
+    }
+    progress.style.width = (clamp(t / DURATION, 0, 1) * 100) + '%';
+    const s = Math.min(Math.floor(t), DURATION);
+    bar.setAttribute('aria-valuenow', s);
+    timeEl.textContent = (s >= 60 ? '1:00' : '0:' + String(s).padStart(2,'0')) + ' / 1:00';
+  }
+
+  function resetAll(){
+    for(const c of cues){ c.el.classList.remove('on'); c.el.style.opacity = 0; }
+    renderAt(0);
+  }
+
+  /* ---------- 葉と光の粒（Canvas） ---------- */
+  const cv = document.getElementById('fx');
+  const cx = cv.getContext('2d');
+  const TONES = ['#e8615a','#f2a93b','#46b08a','#3d8bfd','#9b72cf','#ffd9a0'];
+  let W = 0, H = 0, parts = [];
+
+  function sizeCanvas(){
+    const r = stage.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = r.width; H = r.height;
+    cv.width = Math.round(W * dpr);
+    cv.height = Math.round(H * dpr);
+    cx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  window.addEventListener('resize', sizeCanvas);
+
+  function spawn(kind){
+    return {
+      kind,
+      x: Math.random() * W,
+      y: H * (0.55 + Math.random() * 0.5),
+      vx: (Math.random() - 0.5) * 0.24,
+      vy: -(0.12 + Math.random() * 0.32),
+      r: kind === 'leaf' ? 3 + Math.random() * 6 : 1 + Math.random() * 2.2,
+      rot: Math.random() * Math.PI,
+      vr: (Math.random() - 0.5) * 0.012,
+      life: 0,
+      max: 380 + Math.random() * 420,
+      tone: TONES[(Math.random() * TONES.length) | 0],
+      sway: 0.4 + Math.random() * 1.1,
+      phase: Math.random() * Math.PI * 2
+    };
+  }
+
+  function density(t){
+    if(t < 9) return 0;
+    if(t < 16) return (t - 9) / 7 * 0.55;
+    if(t < 44) return 0.55;
+    if(t < 52) return 0.55 + (t - 44) / 8 * 0.45;
+    return Math.max(0, 1 - (t - 52) / 8) * 0.9;
+  }
+
+  function drawFx(t, dt){
+    cx.clearRect(0,0,W,H);
+    if(reduce) return;
+    const d = density(t);
+    const want = Math.round(d * 90);
+    while(parts.length < want) parts.push(spawn(Math.random() < 0.62 ? 'leaf' : 'spark'));
+    const lightPhase = clamp((t - 40) / 8, 0, 1);
+
+    for(let i = parts.length - 1; i >= 0; i--){
+      const p = parts[i];
+      p.life += dt;
+      p.phase += dt * 0.0016 * p.sway;
+      p.x += p.vx * dt * 0.06 + Math.sin(p.phase) * 0.22;
+      p.y += p.vy * dt * 0.06;
+      p.rot += p.vr * dt * 0.06;
+      const fade = Math.sin(Math.PI * clamp(p.life / p.max, 0, 1));
+      if(p.life > p.max || p.y < -30 || parts.length > want + 24){ parts.splice(i,1); continue; }
+
+      cx.save();
+      cx.translate(p.x, p.y);
+      cx.rotate(p.rot);
+      cx.globalAlpha = fade * (p.kind === 'leaf' ? 0.5 : 0.75) * (1 - lightPhase * 0.35);
+      cx.fillStyle = p.tone;
+      if(p.kind === 'leaf'){
+        cx.beginPath();
+        cx.ellipse(0, 0, p.r, p.r * 0.52, 0, 0, Math.PI * 2);
+        cx.fill();
+      }else{
+        cx.shadowBlur = 12;
+        cx.shadowColor = p.tone;
+        cx.beginPath();
+        cx.arc(0, 0, p.r, 0, Math.PI * 2);
+        cx.fill();
+      }
+      cx.restore();
+    }
+  }
+
+  /* ---------- 環境音楽（Web Audio） ---------- */
+  let ac = null, master = null, padGain = null, timer = null, muted = false;
+  const CHORDS = [
+    [174.61, 220.00, 261.63],  // Fmaj
+    [196.00, 246.94, 293.66],  // G/  やわらかい伸び
+    [220.00, 261.63, 329.63],  // Am
+    [233.08, 293.66, 349.23]   // Bb
+  ];
+  const BELLS = [349.23, 392.00, 440.00, 523.25, 587.33, 698.46, 783.99];
+
+  function bell(freq, at, vol){
+    const o = ac.createOscillator();
+    const g = ac.createGain();
+    const o2 = ac.createOscillator();
+    o.type = 'sine'; o.frequency.value = freq;
+    o2.type = 'triangle'; o2.frequency.value = freq * 2.005;
+    const g2 = ac.createGain(); g2.gain.value = 0.22;
+    g.gain.setValueAtTime(0.0001, at);
+    g.gain.exponentialRampToValueAtTime(vol, at + 0.06);
+    g.gain.exponentialRampToValueAtTime(0.0001, at + 3.4);
+    o.connect(g); o2.connect(g2); g2.connect(g); g.connect(master);
+    o.start(at); o2.start(at); o.stop(at + 3.6); o2.stop(at + 3.6);
+  }
+
+  function startAudio(){
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if(!AC) return;
+    ac = new AC();
+    master = ac.createGain();
+    master.gain.value = muted ? 0 : 0.0001;
+    master.connect(ac.destination);
+    master.gain.exponentialRampToValueAtTime(muted ? 0.0001 : 0.5, ac.currentTime + 3);
+
+    padGain = ac.createGain();
+    padGain.gain.value = 0.0001;
+    const lp = ac.createBiquadFilter();
+    lp.type = 'lowpass'; lp.frequency.value = 900; lp.Q.value = 0.4;
+    padGain.connect(lp); lp.connect(master);
+    padGain.gain.exponentialRampToValueAtTime(0.16, ac.currentTime + 6);
+    lp.frequency.setValueAtTime(700, ac.currentTime);
+    lp.frequency.linearRampToValueAtTime(1900, ac.currentTime + 48);
+
+    const voices = [];
+    for(let i = 0; i < 3; i++){
+      const o = ac.createOscillator();
+      o.type = i === 2 ? 'triangle' : 'sine';
+      const g = ac.createGain(); g.gain.value = 0.34;
+      o.connect(g); g.connect(padGain);
+      o.start();
+      voices.push(o);
+    }
+    let chordIdx = -1, nextBell = 0.8, lastWant = 0.5;
+
+    timer = setInterval(() => {
+      if(!ac || ac.state !== 'running') return;
+      const t = clock();
+      const ci = Math.floor(t / 7.5) % CHORDS.length;
+      if(ci !== chordIdx){
+        chordIdx = ci;
+        const ch = CHORDS[ci];
+        voices.forEach((o,i) => o.frequency.setTargetAtTime(ch[i], ac.currentTime, 1.4));
+      }
+      if(t >= nextBell && t < 58){
+        const dense = t > 46 ? 1.15 : t > 30 ? 1.8 : 2.6;
+        const vol = (t > 46 ? 0.10 : 0.07) * (0.7 + Math.random() * 0.5);
+        bell(BELLS[(Math.random() * BELLS.length) | 0], ac.currentTime + 0.02, vol);
+        nextBell = t + dense * (0.7 + Math.random() * 0.8);
+      }
+      if(!muted){
+        const want = t > 56 ? 0.0001 : 0.5;
+        if(want !== lastWant){
+          lastWant = want;
+          master.gain.cancelScheduledValues(ac.currentTime);
+          master.gain.setValueAtTime(Math.max(master.gain.value, 0.0001), ac.currentTime);
+          master.gain.exponentialRampToValueAtTime(want, ac.currentTime + (want < 0.01 ? 4 : 1.2));
+        }
+      }
+    }, 120);
+  }
+
+  function stopAudio(){
+    if(timer){ clearInterval(timer); timer = null; }
+    if(ac){ const a = ac; ac = null; a.close(); }
+  }
+
+  /* ---------- 再生制御 ---------- */
+  let t0 = 0, raf = null, playing = false, last = 0;
+  const clock = () => (performance.now() - t0) / 1000;
+
+  function loop(now){
+    const t = (now - t0) / 1000;
+    const dt = Math.min(now - last, 50); last = now;
+    renderAt(Math.min(t, DURATION));
+    drawFx(t, dt);
+    if(t >= DURATION){ finish(); return; }
+    raf = requestAnimationFrame(loop);
+  }
+
+  function play(){
+    sizeCanvas();
+    resetAll();
+    parts = [];
+    curtain.hidden = true;
+    playing = true;
+    t0 = performance.now();
+    last = t0;
+    stopAudio();
+    startAudio();
+    raf = requestAnimationFrame(loop);
+    controls.classList.remove('show');
+  }
+
+  function finish(){
+    playing = false;
+    cancelAnimationFrame(raf);
+    renderAt(DURATION);
+    progress.style.width = '100%';
+    controls.classList.add('show');
+    setTimeout(stopAudio, 4500);
+  }
+
+  function seek(target){
+    const t = clamp(target, 0, DURATION - 0.1);
+    for(const c of cues) c.el.classList.remove('on');
+    parts = [];
+    curtain.hidden = true;
+    t0 = performance.now() - t * 1000;
+    last = performance.now();
+    if(!playing){
+      playing = true;
+      if(!ac) startAudio();
+      raf = requestAnimationFrame(loop);
+    }
+  }
+
+  playbtn.addEventListener('click', play);
+  replay.addEventListener('click', play);
+
+  bar.addEventListener('click', e => {
+    const r = bar.getBoundingClientRect();
+    seek((e.clientX - r.left) / r.width * DURATION);
+  });
+  bar.addEventListener('keydown', e => {
+    if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+      e.preventDefault();
+      seek(curT + (e.key === 'ArrowRight' ? 5 : -5));
+    }
+  });
+
+  muteBtn.addEventListener('click', () => {
+    muted = !muted;
+    muteBtn.setAttribute('aria-label', muted ? '音を出す' : '音を消す');
+    document.getElementById('ico-sound').innerHTML = muted
+      ? '<path d="M4 9v6h4l5 5V4L8 9H4zm15.5 3l2.5 2.5-1.4 1.4L18 13.4 15.4 16 14 14.6 16.5 12 14 9.4 15.4 8 18 10.6 20.6 8 22 9.4 19.5 12z"/>'
+      : '<path d="M4 9v6h4l5 5V4L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/>';
+    if(master && ac){
+      master.gain.cancelScheduledValues(ac.currentTime);
+      master.gain.setValueAtTime(Math.max(master.gain.value, 0.0001), ac.currentTime);
+      master.gain.exponentialRampToValueAtTime(muted ? 0.0001 : 0.5, ac.currentTime + 0.4);
+    }
+  });
+
+  document.getElementById('fs').addEventListener('click', () => {
+    if(document.fullscreenElement) document.exitFullscreen();
+    else if(stage.requestFullscreen) stage.requestFullscreen().catch(() => {});
+  });
+
+  stage.addEventListener('mousemove', () => {
+    controls.classList.add('show');
+    clearTimeout(stage._h);
+    stage._h = setTimeout(() => { if(playing) controls.classList.remove('show'); }, 1800);
+  });
+
+  window.addEventListener('keydown', e => {
+    if(e.key === ' ' || e.key === 'Enter'){
+      if(!playing && document.activeElement === document.body){ e.preventDefault(); play(); }
+    }
+  });
+
+  sizeCanvas();
+  resetAll();
+})();
+</script>
+</body>
+</html>
