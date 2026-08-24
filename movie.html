@@ -162,22 +162,43 @@
   .on .plus i:nth-child(1){width:100%;}
   .on .plus i:nth-child(2){height:100%;}
 
-  /* 私たちがしていること */
-  .terms{
-    display:flex;flex-wrap:wrap;justify-content:center;gap:1.2cqh 1.8cqw;
-    max-width:78cqw;margin-top:4cqh;
-  }
-  .terms b{
-    font-family:var(--gothic);font-weight:500;font-size:var(--fs-term);letter-spacing:.08em;
-    padding:.7cqh 1.5cqw;border-radius:999px;
-    border:1px solid rgba(251,248,243,.28);
-    color:rgba(251,248,243,.9);
-    background:rgba(10,36,50,.42);   /* 木に重なっても読めるように、うっすら地を敷く */
-    opacity:0;transform:translateY(1.2cqh);
-    transition:opacity .8s ease,transform .9s cubic-bezier(.2,.75,.2,1);
+  /* 聴く → 知る → 考える → つなぐ → 支える */
+  .flow{display:flex;align-items:center;justify-content:center;gap:1.6cqw;}
+  .step{
+    display:inline-flex;align-items:center;gap:.9cqw;
+    font-family:var(--mincho);font-weight:500;
+    font-size:calc(var(--fs-md) * .95);letter-spacing:.12em;
+    color:rgba(251,248,243,.96);
+    opacity:0;transform:translateY(1.4cqh);
+    transition:opacity .8s ease,transform 1s cubic-bezier(.2,.75,.2,1);
     transition-delay:var(--d,0s);
   }
-  .on .terms b{opacity:1;transform:none;}
+  .on .step{opacity:1;transform:none;}
+  .step i{
+    flex:0 0 auto;
+    width:2.4cqh;height:2.4cqh;border-radius:50%;background:var(--tone);
+    box-shadow:0 0 2.2cqh var(--tone),0 0 5cqh color-mix(in srgb,var(--tone) 50%,transparent);
+  }
+  .arw{
+    position:relative;flex:0 0 auto;
+    width:0;height:1px;background:rgba(251,248,243,.55);
+    transition:width .55s ease;
+    transition-delay:var(--d,0s);
+  }
+  .on .arw{width:3.6cqw;}
+  .arw::after{                       /* 矢印の先 */
+    content:"";position:absolute;right:0;top:50%;
+    width:.7cqh;height:.7cqh;
+    border-top:1px solid rgba(251,248,243,.55);
+    border-right:1px solid rgba(251,248,243,.55);
+    transform:translateY(-50%) rotate(45deg);
+    opacity:0;transition:opacity .3s ease;
+    transition-delay:calc(var(--d, 0s) + .45s);
+  }
+  .on .arw::after{opacity:1;}
+  .pay{margin-top:3.2cqh;}
+  /* 木に重なっても白文字が沈まないよう、ごく淡い影を敷く */
+  .step,.pay{text-shadow:0 0 1.6cqh rgba(8,30,42,.9),0 0 .5cqh rgba(8,30,42,.75);}
 
   /* ロゴ */
   .emblem{
@@ -309,7 +330,14 @@
     .plus i:nth-child(1){top:calc(50% - 1cqw);height:2cqw;}
     .plus i:nth-child(2){left:calc(50% - 1cqw);width:2cqw;}
     .emblem{width:21cqw;height:21cqw;}
-    .terms{max-width:92cqw;gap:1.2cqw 1.6cqw;}
+    /* スマホ縦画面では、流れを縦に並べる */
+    .flow{flex-direction:column;gap:1cqh;}
+    .pay{font-size:4.7cqw;margin-top:2.6cqh;}
+    .step{font-size:4.4cqw;gap:2cqw;}
+    .step i{width:3.4cqw;height:3.4cqw;}
+    .arw{width:1px;height:0;transition:height .5s ease;}
+    .on .arw{width:1px;height:2.2cqw;}
+    .arw::after{right:auto;left:50%;top:auto;bottom:0;transform:translateX(-50%) rotate(135deg);width:2cqw;height:2cqw;}
     .curtain img{width:20cqw;height:20cqw;}
     .curtain h1{font-size:6.2cqw;}
     .curtain p{font-size:3.4cqw;}
@@ -318,7 +346,8 @@
   }
 
   @media (prefers-reduced-motion:reduce){
-    .line,.dot,.terms b,.emblem{transition-duration:.35s;transform:none !important;filter:none !important;}
+    .line,.dot,.step,.emblem{transition-duration:.35s;transform:none !important;filter:none !important;}
+    .arw,.arw::after{transition-duration:.3s;}
     .hair,.plus i,.end .rainbow{transition-duration:.35s;}
   }
 </style>
@@ -372,19 +401,20 @@
       <p class="line t-md" style="--d:2.5s">そっと、プラス。</p>
     </div>
     <!-- 6 -->
-    <div class="scene" data-in="33.2" data-out="40.4" data-fo="1.2" style="justify-content:flex-start;padding-top:6cqh">
-      <p class="line t-md" style="--d:.1s">想いに寄り添うために、</p>
-      <p class="line t-md" style="--d:.8s">私たちがしていること。</p>
-      <div class="terms">
-        <b style="--d:1.7s">暮らしのお話を、じっくり伺う</b>
-        <b style="--d:1.9s">その方だけの計画を、一緒に立てる</b>
-        <b style="--d:2.1s">関わる人みんなで集まって話し合う</b>
-        <b style="--d:2.3s">毎月、おうちへ伺う</b>
-        <b style="--d:2.5s">むずかしい手続きをお引き受け</b>
-        <b style="--d:2.7s">お医者さんや事業所とつなぐ</b>
-        <b style="--d:2.9s">できることを、続けられるように</b>
-        <b style="--d:3.1s">住み慣れた家で、暮らし続ける</b>
+    <div class="scene" data-in="32.9" data-out="40.7" data-fo="1.2" style="justify-content:flex-start;padding-top:9cqh">
+      <div class="flow">
+        <span class="step" style="--tone:var(--c1);--d:.2s"><i></i>聴く</span>
+        <span class="arw" style="--d:.5s"></span>
+        <span class="step" style="--tone:var(--c2);--d:.7s"><i></i>知る</span>
+        <span class="arw" style="--d:1s"></span>
+        <span class="step" style="--tone:var(--c3);--d:1.2s"><i></i>考える</span>
+        <span class="arw" style="--d:1.5s"></span>
+        <span class="step" style="--tone:var(--c4);--d:1.7s"><i></i>つなぐ</span>
+        <span class="arw" style="--d:2s"></span>
+        <span class="step" style="--tone:var(--c5);--d:2.2s"><i></i>支える</span>
       </div>
+      <div class="hair" style="--d:2.5s"></div>
+      <p class="line t-md pay" style="--d:2.8s">あなたの想いを、暮らしにつなぐ。</p>
     </div>
     <!-- 7 -->
     <div class="scene" data-in="41" data-out="47.4" data-fo="1.2" style="justify-content:flex-start;padding-top:7cqh">
