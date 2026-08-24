@@ -63,7 +63,7 @@
     user-select:none;
     /* 映像内の文字サイズ（横長は画面の高さ基準） */
     --fs-lg:5.4cqh; --fs-md:4.4cqh; --fs-dot:2.5cqh; --fs-term:2.35cqh;
-    --fs-brand:5cqh; --fs-body:2.3cqh; --fs-tel:4.4cqh; --fs-url:2.1cqh;
+    --fs-brand:6.6cqh; --fs-body:3.1cqh; --fs-tel:5.6cqh; --fs-url:2.7cqh;
     --pad:8cqw; --tree:52cqh;
   }
 
@@ -218,6 +218,7 @@
 
   /* エンドカード */
   .end{gap:0;}
+  .end .line{line-height:1.45;}   /* 大きな文字なので行間は締める */
   .end .brand{
     font-family:var(--mincho);font-weight:700;
     font-size:var(--fs-brand);letter-spacing:.16em;color:#153343;
@@ -325,7 +326,7 @@
     .stage{
       aspect-ratio:4/5;
       --fs-lg:6.2cqw; --fs-md:5.2cqw; --fs-dot:3.4cqw; --fs-term:3.1cqw;
-      --fs-brand:6.4cqw; --fs-body:3.2cqw; --fs-tel:6.6cqw; --fs-url:2.9cqw;
+      --fs-brand:7.6cqw; --fs-body:3.9cqw; --fs-tel:7.8cqw; --fs-url:3.4cqw;
       --pad:6cqw; --tree:62cqw;
     }
     .memos{gap:.9cqh;}
