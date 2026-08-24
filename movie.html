@@ -198,6 +198,13 @@
     font-size:var(--fs-brand);letter-spacing:.16em;color:#153343;
   }
   .end .brand small{display:block;font-size:.42em;letter-spacing:.3em;font-weight:600;color:#3f6577;margin-bottom:.9cqh;}
+  /* 事業所名は虹色で。明るい背景の上で読めるよう、サイトの5色を少し深めた色味にしています */
+  .end .brand-name{
+    background:linear-gradient(94deg,#dd4f47 0%,#d98a1e 24%,#2f9e77 48%,#2e79ec 72%,#8558c4 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
   .end .org{font-size:var(--fs-body);letter-spacing:.1em;color:#4a6b79;margin-top:1.6cqh;}
   .end .meta{
     display:flex;flex-wrap:wrap;justify-content:center;gap:.8cqh 2.4cqw;
@@ -393,7 +400,7 @@
     </div>
     <!-- 9 エンドカード -->
     <div class="scene end" data-in="54.6" data-out="70" data-fi="1.6" data-fo="0.1">
-      <p class="brand line" style="--d:.2s"><small>ケアプランセンター</small>カラフルプラス</p>
+      <p class="brand line" style="--d:.2s"><small>ケアプランセンター</small><span class="brand-name">カラフルプラス</span></p>
       <p class="org line" style="--d:.9s">一般社団法人 日本福祉支援センター ／ 居宅介護支援事業所</p>
       <div class="meta">
         <span class="line" style="--tone:var(--c1);--d:1.3s">浜松市全域に対応</span>
