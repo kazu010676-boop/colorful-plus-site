@@ -348,6 +348,11 @@
     .arw{width:1px;height:0;transition:height .5s ease;}
     .on .arw{width:1px;height:1.5cqw;}
     .arw::after{right:auto;left:50%;top:auto;bottom:0;transform:translateX(-50%) rotate(135deg);width:2cqw;height:2cqw;}
+    /* 幅が狭いと長い一文が語句の途中で折り返してしまうため、
+       意味の切れ目で改行する（区切りの「／」は改行するので隠す） */
+    .ln{display:block;}
+    .ln-sep{display:none;}
+
     /* 最後の連絡先画面は縦に長く、木と重なって読みにくいため、
        スマホでは空と同じ色の背景を敷いて木を隠す */
     .scene.end{
@@ -412,7 +417,7 @@
     <!-- 5 -->
     <div class="scene" data-in="26.2" data-out="32.6" data-fo="1.2" style="justify-content:flex-start;padding-top:6cqh">
       <div class="plus"><i></i><i></i></div>
-      <p class="line t-md" style="--d:1.9s">その色に、ケアマネジャーの想いを、</p>
+      <p class="line t-md" style="--d:1.9s"><span class="ln">その色に、</span><span class="ln">ケアマネジャーの想いを、</span></p>
       <p class="line t-md" style="--d:2.5s">そっと、プラス。</p>
     </div>
     <!-- 6 -->
@@ -445,14 +450,14 @@
     <!-- 9 エンドカード -->
     <div class="scene end" data-in="54.6" data-out="70" data-fi="1.6" data-fo="0.1">
       <p class="brand line" style="--d:.2s"><small>ケアプランセンター</small><span class="brand-name">カラフルプラス</span></p>
-      <p class="org line" style="--d:.9s">一般社団法人 日本福祉支援センター ／ 居宅介護支援事業所</p>
+      <p class="org line" style="--d:.9s"><span class="ln">一般社団法人 日本福祉支援センター</span><span class="ln-sep"> ／ </span><span class="ln">居宅介護支援事業所</span></p>
       <div class="meta">
         <span class="line" style="--tone:var(--c1);--d:1.3s">浜松市全域に対応</span>
         <span class="line" style="--tone:var(--c3);--d:1.5s">ご利用者様の自己負担 0円</span>
         <span class="line" style="--tone:var(--c4);--d:1.7s">事業所番号 2277207151</span>
       </div>
       <p class="tel line" style="--d:2.1s"><small>ご相談・お問い合わせ</small>090-8504-0458</p>
-      <p class="url line" style="--d:2.5s">静岡県浜松市中央区向宿1丁目7-3 ／ colorful-plus-site.pages.dev</p>
+      <p class="url line" style="--d:2.5s"><span class="ln">静岡県浜松市中央区向宿1丁目7-3</span><span class="ln-sep"> ／ </span><span class="ln">colorful-plus-site.pages.dev</span></p>
       <div class="rainbow" style="--d:2.8s"></div>
     </div>
 
