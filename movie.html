@@ -337,14 +337,22 @@
     .plus i:nth-child(1){top:calc(50% - 1cqw);height:2cqw;}
     .plus i:nth-child(2){left:calc(50% - 1cqw);width:2cqw;}
     .emblem{width:21cqw;height:21cqw;}
-    /* スマホ縦画面では、流れを縦に並べる */
-    .flow{flex-direction:column;gap:1cqh;}
-    .pay{font-size:4.7cqw;margin-top:2.6cqh;}
-    .step{font-size:4.4cqw;gap:2cqw;}
-    .step i{width:3.4cqw;height:3.4cqw;}
+    /* スマホ縦画面では、流れを縦に並べる。
+       縦に積むと背が高くなり木に重なるため、余白と大きさを詰めている */
+    .scene-flow{padding-top:5cqh !important;}
+    .scene-flow .hair{margin-top:1.2cqh;}
+    .flow{flex-direction:column;gap:.45cqh;}
+    .pay{font-size:4.4cqw;margin-top:1.3cqh;}
+    .step{font-size:4.2cqw;gap:2cqw;}
+    .step i{width:3.1cqw;height:3.1cqw;}
     .arw{width:1px;height:0;transition:height .5s ease;}
-    .on .arw{width:1px;height:2.2cqw;}
+    .on .arw{width:1px;height:1.5cqw;}
     .arw::after{right:auto;left:50%;top:auto;bottom:0;transform:translateX(-50%) rotate(135deg);width:2cqw;height:2cqw;}
+    /* 最後の連絡先画面は縦に長く、木と重なって読みにくいため、
+       スマホでは空と同じ色の背景を敷いて木を隠す */
+    .scene.end{
+      background:radial-gradient(120% 110% at 50% 86%,#ffffff 0%,#fdf6ea 38%,#eef4f2 72%,#dfeae9 100%);
+    }
     .curtain img{width:20cqw;height:20cqw;}
     .curtain h1{font-size:6.2cqw;}
     .curtain p{font-size:3.4cqw;}
@@ -408,7 +416,7 @@
       <p class="line t-md" style="--d:2.5s">そっと、プラス。</p>
     </div>
     <!-- 6 -->
-    <div class="scene" data-in="32.9" data-out="40.7" data-fo="1.2" style="justify-content:flex-start;padding-top:9cqh">
+    <div class="scene scene-flow" data-in="32.9" data-out="40.7" data-fo="1.2" style="justify-content:flex-start;padding-top:9cqh">
       <div class="flow">
         <span class="step" style="--tone:var(--c1);--d:.2s"><i></i>聴く</span>
         <span class="arw" style="--d:.5s"></span>
